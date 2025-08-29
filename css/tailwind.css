@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukti+Vaani:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #0f0b2b; /* deep-navy-900 */
+  --color-primary-light: #1a1654; /* navy-800 */
+  
+  /* Accent Colors */
+  --color-accent: #D4AF37; /* gold-500 */
+  --color-accent-hover: #B8941F; /* gold-600 */
+  
+  /* Background Colors */
+  --color-background: #fafafa; /* gray-50 */
+  --color-surface: #ffffff; /* white */
+  
+  /* Text Colors */
+  --color-text-primary: #1a1a1a; /* gray-900 */
+  --color-text-secondary: #4a4a4a; /* gray-600 */
+  
+  /* Status Colors */
+  --color-success: #22c55e; /* green-500 */
+  --color-warning: #f59e0b; /* amber-500 */
+  --color-error: #ef4444; /* red-500 */
+  
+  /* Border Colors */
+  --color-border: #e5e7eb; /* gray-200 */
+  --color-border-active: #D4AF37; /* gold-500 */
+}
+
+@layer base {
+  body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Mukti Vaani', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-accent-hover transition-all duration-200 ease-in-out;
+    box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3);
+  }
+  
+  .btn-whatsapp {
+    @apply bg-success text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-green-600 transition-all duration-200 ease-in-out;
+    box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+  }
+  
+  .card {
+    @apply bg-surface rounded-lg p-6 shadow-md;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial {
+    @apply bg-surface rounded-lg p-6 shadow-md;
+    font-family: 'Noto Serif Devanagari', serif;
+    animation: slideUp 300ms ease-in-out;
+  }
+  
+  .form-input {
+    @apply border border-gray-200 rounded-lg px-4 py-3 focus:border-accent focus:outline-none transition-colors duration-200;
+  }
+  
+  .form-input:focus {
+    border-width: 2px;
+  }
+}
+
+@layer utilities {
+  .text-hindi-primary {
+    font-family: 'Mukti Vaani', sans-serif;
+    font-weight: 600;
+  }
+  
+  .text-hindi-body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  
+  .text-hindi-accent {
+    font-family: 'Noto Serif Devanagari', serif;
+  }
+  
+  .shadow-gold {
+    box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3);
+  }
+  
+  .shadow-whatsapp {
+    box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sticky WhatsApp Button */
+.sticky-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
